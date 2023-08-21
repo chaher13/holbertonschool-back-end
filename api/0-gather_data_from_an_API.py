@@ -20,26 +20,30 @@
 import requests
 import sys
 
-if __name__ == "__main__":
-    if len(sys.argv) == 2:
 
-        user_id = sys.argv[1]
-        user = f'https://jsonplaceholder.typicode.com/users/{user_id}'
-        todos = f'https://jsonplaceholder.typicode.com/todos/?userId={user_id}'
+def retrieve_data():
 
-        response_user = requests.get(user)
-        user_data = response_user.json()
-        name = user_data.get('name')
-        response_todos = requests.get(todos)
-        todo_json = response_todos.json()
+    user_id = sys.argv[1]
+    user = f'https://jsonplaceholder.typicode.com/users/{user_id}'
+    todos = f'https://jsonplaceholder.typicode.com/todos/?userId={user_id}'
 
-        complete = []
-        for todo in todo_json:
-            if todo.get('completed') is True:
-                complete.append(todo['title'])
+    response_user = requests.get(user)
+    user_data = response_user.json()
+    name = user_data['name']
+    response_todos = requests.get(todos)
+    todo_json = response_todos.json()
 
-        print(f'Employee {name} is done\
+    complete = []
+    for todo in todo_json:
+        if todo.get('completed') is True:
+            complete.append(todo['title'])
+
+    print(f'Employee {name} is done\
 with tasks({len(complete)}/{len(todo_json)})')
 
-        for todo in complete:
-            print('\t', todo)
+    for todo in complete:
+        print('\t', todo)
+
+if __name__ == "__main__":
+    if len(sys.argv) == 2:
+        retrieve_data()
