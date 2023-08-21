@@ -38,7 +38,7 @@ def retrieve_data():
             complete.append(todo.get("title"))
 
     print(f'Employee {name} is done \
-with tasks({len(complete)}/{len(todo_json)})')
+with tasks({len(complete)}/{len(todo_json)}):')
 
     for todo in complete:
         print('\t', todo)
