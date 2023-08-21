@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+export_to_csv
+"""
 import requests
 import sys
 
@@ -11,7 +13,6 @@ def export_to_csv():
     todos = f'https://jsonplaceholder.typicode.com/todos/?userId={user_id}'
     username = requests.get(user).json().get('username')
     request_todo = requests.get(todos).json()
-
 
     with open(f'{user_id}.csv', 'w+') as csv_file:
         for todo in request_todo:
