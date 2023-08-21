@@ -20,7 +20,6 @@ import sys
 import requests
 
 
-
 def retrieve_data():
 
     user_id = int(sys.argv[1])
@@ -44,6 +43,8 @@ with tasks({len(complete)}/{len(todo_json)})')
     for todo in complete:
         print('\t', todo)
 
+
 if __name__ == "__main__":
+
     if len(sys.argv) == 2:
         retrieve_data()
