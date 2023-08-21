@@ -16,8 +16,8 @@
         user_id (int): The ID of the user for whom to retrieve completed tasks.
 
 """
-import sys
 import requests
+import sys
 
 
 def retrieve_data():
@@ -37,7 +37,7 @@ def retrieve_data():
         if todo["completed"] is True:
             complete.append(todo.get("title"))
 
-    print(f'Employee {name} is done\
+    print(f'Employee {name} is done \
 with tasks({len(complete)}/{len(todo_json)})')
 
     for todo in complete:
