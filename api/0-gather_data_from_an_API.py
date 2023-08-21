@@ -38,8 +38,8 @@ if __name__ == "__main__":
             if todo.get('completed') is True:
                 complete.append(todo['title'])
 
-        print(f'Employee {name} is done with tasks({len(complete)}\
-              /{len(todo_json)})')
+        print(f'Employee {name} is done\
+with tasks({len(complete)}/{len(todo_json)})')
 
         for todo in complete:
             print('\t', todo)
